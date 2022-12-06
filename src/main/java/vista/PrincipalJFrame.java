@@ -18,13 +18,20 @@ import javax.swing.WindowConstants;
 public class PrincipalJFrame extends JFrame {
     RegPacienteInternalFrame regPacienteInternalFrame;
     ConsPacienteInternalFrame consPacienteInternalFrame;
+    ElimPacienteJInternalFrame elimPacienteInternalFrame;
+    ActulJInternalFrame actulPacienteInternalFrame;
+    
 
 	public PrincipalJFrame() {
 		
         regPacienteInternalFrame=new RegPacienteInternalFrame();
         consPacienteInternalFrame=new ConsPacienteInternalFrame();
+        elimPacienteInternalFrame=new ElimPacienteJInternalFrame();
+        actulPacienteInternalFrame=new ActulJInternalFrame();
         add(regPacienteInternalFrame); /*registrar paciente*/
         add(consPacienteInternalFrame);
+        add(elimPacienteInternalFrame);
+        add(actulPacienteInternalFrame);
         initComponents();
 		setExtendedState(MAXIMIZED_BOTH);
 	}
@@ -46,6 +53,8 @@ public class PrincipalJFrame extends JFrame {
 		jMenu2 = new JMenu();
 		jMenuItem2 = new JMenuItem();
 		jMenuItem3 = new JMenuItem();
+		jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("GESTION CITAS");
@@ -89,6 +98,23 @@ public class PrincipalJFrame extends JFrame {
 			}
 		});
 		jMenu2.add(jMenuItem3);
+		
+		  jMenuItem5.setText("Eliminar  ");
+	        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jMenuItem5ActionPerformed(evt);
+	            }
+	        });
+	        jMenu2.add(jMenuItem5);
+
+	        jMenuItem6.setText("Actualizar");
+	        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+	            public void actionPerformed(java.awt.event.ActionEvent evt) {
+	                jMenuItem6ActionPerformed(evt);
+	            }
+	        });
+	        jMenu2.add(jMenuItem6);
+
 
 		jMenuBar1.add(jMenu2);
 
@@ -129,6 +155,16 @@ public class PrincipalJFrame extends JFrame {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+	}
+	
+	private void jMenuItem5ActionPerformed(ActionEvent evt) {
+		
+		elimPacienteInternalFrame.setVisible(true);
+	}
+	
+    private void jMenuItem6ActionPerformed(ActionEvent evt) {
+		
+		actulPacienteInternalFrame.setVisible(true);
 	}
 
 	/**
@@ -173,5 +209,7 @@ public class PrincipalJFrame extends JFrame {
 	private JMenuItem jMenuItem2;
 	private JMenuItem jMenuItem3;
 	private JMenuItem jMenuItem4;
+	private JMenuItem jMenuItem5;
+	private JMenuItem jMenuItem6;
 	// End of variables declaration//GEN-END:variables
 }
